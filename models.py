@@ -1,66 +1,54 @@
-from flask_login import UserMixin
-from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 
-class User(UserMixin, db.Model):
+class Car(db.Model):
     """
-    Create User table
+    Create a Car table
     """
 
-    __tablename__ = 'users'
+    __tablename__ = 'cars'
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(60), index=True, unique=True)
-    first_name = db.Column(db.String(60), index=True)
-    last_name = db.Column(db.String(60), index=True)
-    password_hash = db.Column(db.String(128))
-    department_id = db.Column(db.Integer, db.ForeignKey('departments.id'))
-    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    model = db.Column(db.String(50))
+    year = db.Column(db.Integer)
+    color = db.Column(db.String(20))
+    plate = db.Column(db.String(15), unique=True)
+    rate_per_hour = db.Column(db.Float)
+    status = db.Column(db.String(20))
 
-    @property
-    def password(self):
-        """
-        Prevent password from being accessed
-        """
-        raise AttributeError('Password is not readable')
-
-    @password.setter
-    def password(self, password):
-        """
-        Set password to a hash value
-        """
-        self.password_hash = generate_password_hash(password)
-
-    def verify_password(self, password):
-        """
-        Verify password against password hash
-        """
-        return check_password_hash(self.password_hash, password)
+    # Relationships
+    rentals = db.relationship('Rental', backref='car', lazy='dynamic')
 
 
-
-class Department(db.Model):
+class Rental(db.Model):
     """
-    Create a Department table
+    Create a Rental table
     """
 
-    __tablename__ = 'departments'
+    __tablename__ = 'rentals'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(60), unique=True)
-    description = db.Column(db.String(200))
-    users = db.relationship('User', backref='department',
-                                lazy='dynamic')
+    pickup_date = db.Column(db.DateTime)
+    return_date = db.Column(db.DateTime)
+    total_cost = db.Column(db.Float)
 
-class Role(db.Model):
+    # Foreign Keys
+    car_id = db.Column(db.Integer, db.ForeignKey('cars.id'))
+    customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'))
+
+
+class Customer(db.Model):
     """
-    Create a Role table
+    Create a Customer table
     """
 
-    __tablename__ = 'roles'
+    __tablename__ = 'customers'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(60), unique=True)
-    description = db.Column(db.String(200))
-    users = db.relationship('User', backref='role',
-                                lazy='dynamic')
+    first_name = db.Column(db.String(50))
+    last_name = db.Column(db.String(50))
+    email = db.Column(db.String(60), unique=True)
+    phone = db.Column(db.String(15))
+    address = db.Column(db.String(200))
+
+    # Relationships
+    rentals = db.relationship('Rental', backref='customer', lazy='dynamic')
