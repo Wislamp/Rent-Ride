@@ -3,6 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Pipenv dependency stuff
+Pipfile
+Pipfile.lock
+
+# Fomantic/Semantic UI stuff
+semantic.json
+static/semantic/*
+
 # Node modules / packages
 node_modules
 
