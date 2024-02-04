@@ -9,7 +9,7 @@ Pipfile.lock
 
 # Fomantic/Semantic UI stuff
 semantic.json
-static/semantic/*
+static/semantic
 
 # Node modules / packages
 node_modules
