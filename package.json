@@ -1,0 +1,22 @@
+{
+  "name": "rent-ride",
+  "version": "1.0.0",
+  "description": "Rent-Ride is a web app that allows users to rent cars easily and quickly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wislamp/Rent-Ride.git"
+  },
+  "author": "Solomon, Wisdom, Sarpey, Wilhelmina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wislamp/Rent-Ride/issues"
+  },
+  "homepage": "https://github.com/Wislamp/Rent-Ride#readme",
+  "dependencies": {
+    "fomantic-ui": "^2.9.3"
+  }
+}
