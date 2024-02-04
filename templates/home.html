@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Rent A Ride</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='semantic/dist/semantic.min.css')}}">
+</head>
+<body >
+    <header>
+        <div class="ui secondary menu">
+            <div class="item">
+                <a href="">
+                    <span>Rent</span>
+                    <span>Ride</span>
+                </a>
+            </div>
+            <div class="right menu">
+                <a href="" class="item">Home</a>
+                <a href="" class="item">How it Works</a>
+                <a href="" class="item">Rental Deals</a>
+                <a href="" class="item">Why Choose Us</a>
+                <a href="" class="item">Testimonials</a>
+                <div class="item ">
+                    <button class="ui black basic button">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="ui two column grid">
+        <div class="left attached column">
+            <h3>
+                Find, book, and rent a car in easy steps.
+            </h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, praesentium similique eius repellendus, hic, debitis quis libero sint provident minus minima magni dolor quae facilis veritatis nam quasi accusantium? Magnam.</p>
+            <button class="ui black basic button">Book Now</button>
+        </div>
+        <div class="right attached column">
+            <img class="ui fluid image" src="{{url_for('static', filename='images/heroimg.png')}}" alt="">
+        </div>
+    </div>
+
+    <form action="">
+        <div class="ui grid">
+            <div class="four wide column">
+                <label for="">Location</label>
+                <input type="text">
+            </div>
+            <div class="four wide column">
+                <label for="">Pick-up Date</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="four wide column">
+                <label for="">Return Date</label>
+                <input type="text">
+            </div>
+            <div class="four wide column">
+                <button type="submit" class="ui black basic button">Book Now</button>
+            </div>
+        </div>
+    </form>
+
+    <section>
+        <div></div>
+        <div></div>
+    </section>
+
+    <section>
+        <div>
+            <h2>Most popular car rental deals</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tenetur nesciunt fuga corporis, voluptatibus vel deserunt, natus, praesentium voluptas iure ea culpa modi magnam corrupti. Earum doloremque fuga nemo eius.</p>
+        </div>
+        <div class="ui four item stackable tabs menu">
+            <div class="active item">
+                <h4>Popular</h4>
+            </div>
+            <div class="item">
+                <h4>Large Car</h4>
+            </div>
+            <div class="item">
+                <h4>Small Car</h4>
+            </div>
+            <div class="item">
+                <h4>Exclusive Car</h4>
+            </div>
+        </div>
+        <div class="ui grid">
+            <div class="five wide column">
+                <div class="ui card">
+                    <div class="content">
+                    <div class="right floated meta">14h</div>
+                    <p>New Car</p>
+                    </div>
+                    <div class="image">
+                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                        <button type="submit" class="ui black basic button">Book Now</button>
+                    </span>
+                    <p>Price</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="five wide column">
+                <div class="ui card">
+                    <div class="content">
+                    <div class="right floated meta">14h</div>
+                    <p>New Car</p>
+                    </div>
+                    <div class="image">
+                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                        <button type="submit" class="ui black basic button">Book Now</button>
+                    </span>
+                    <p>Price</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="five wide column">
+                <div class="ui card">
+                    <div class="content">
+                    <div class="right floated meta">14h</div>
+                    <p>New Car</p>
+                    </div>
+                    <div class="image">
+                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                        <button type="submit" class="ui black basic button">Book Now</button>
+                    </span>
+                    <p>Price</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="five wide column">
+                <div class="ui card">
+                    <div class="content">
+                    <div class="right floated meta">14h</div>
+                    <p>New Car</p>
+                    </div>
+                    <div class="image">
+                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
+                    </div>
+                    <div class="content">
+                    <span class="right floated">
+                        <button type="submit" class="ui black basic button">Book Now</button>
+                    </span>
+                    <p>Price</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="{{url_for('static', filename='semantic/dist/semantic.min.js')}}"></script>
+</body>
+</html>
