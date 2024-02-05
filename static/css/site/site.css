@@ -1,0 +1,68 @@
+/* DESKTOP/TABLET COMMONS */
+/* TODO */
+/* 1. Hero section header takes full width */
+/* 2. Hero section has backgroud color with no opacity
+so text color must match.
+*/
+/* Accent text needs color change */
+
+/* Want to get the layout done, the font etc will follow */
+
+section.hero__section{
+    margin-bottom: 5rem;
+}
+section.hero__section header{
+    background-color: #F3F4FC;
+    color: #000000;
+    padding: 1rem 1rem;
+    border-bottom: 0.05rem solid #B9B9B9;
+    justify-content: space-between;
+}
+
+.hero__content.container-fluid {
+    padding: 0;
+}
+
+
+.hero__content .row{
+    align-items: center;
+    background-color: #F3F4FC;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 0;
+}
+
+.header__nav .nav-item {
+    text-decoration: none;
+    padding: 0.2rem 0.25rem;
+    color: #000000;
+}
+
+button.cta__button {
+    border: none;
+    border-radius: 0.125rem;
+    background-color: #ffffff;
+    padding: 0.5rem 1.75rem;
+    /* we'll fix. Not a biggie - Nav CTA padding */
+}
+
+.booking__process {
+    margin-bottom: 5rem;
+}
+
+.rental__deals {
+    background-color: #FAFAFA;
+    padding-top: 2rem;
+}
+.car__listing {
+    background-color: #D9D9D9;
+    border: none;
+}
+
+.car__listing img {
+    padding: 2rem 0;
+}
+
+.car__listing .card-header, .card-footer {
+    border: none;
+}

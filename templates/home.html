@@ -5,161 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Rent A Ride</title>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site/site.css') }}">
 </head>
 <body >
-    <header>
-        <div class="ui secondary menu">
-            <div class="item">
+    <section class="container-fluid hero__section">
+        <!-- Sticky menu - Desktop/Tablet full width -->
+        <!-- Grid could give a lot more control but we can try to FLEX it! why not! -->
+        <header class="row">
+            <!-- Logo 3-->
+            <div class="col-3">
                 <a href="">
-                    <span>Rent</span>
-                    <span>Ride</span>
+                    Rent <span class="accent-text">Ride</span>
                 </a>
             </div>
-            <div class="right menu">
-                <a href="" class="item">Home</a>
-                <a href="" class="item">How it Works</a>
-                <a href="" class="item">Rental Deals</a>
-                <a href="" class="item">Why Choose Us</a>
-                <a href="" class="item">Testimonials</a>
-                <div class="item ">
-                    <button class="ui black basic button">Book Now</button>
+
+            <!-- Navigation 7-->
+            <nav class="header__nav col-7">
+                <a href="" class="nav-item">Home</a>
+                <a href="" class="nav-item">How it Works</a>
+                <a href="" class="nav-item">Rental Deals</a>
+                <a href="" class="nav-item">Why Choose Us</a>
+                <a href="" class="nav-item">Testimonials</a>
+            </nav>
+
+            <!-- Header CTA 2-->
+            <div class="col-2 text-center">
+                <button class="cta__button">Book Now</button>
+            </div>
+        </header>
+
+        <!-- Hero Image and Text with CTA full width-->
+        <!-- TODOS -->
+        <!-- Two Column Grid on Desktop/ Tablet - Image as background for mobile -->
+        <div class="hero__content container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    <h3>
+                        Find, book, and rent a car in <span class="accent-text">easy</span> steps.
+                    </h3>
+                    <p>With a few steps, you're sure to be on your way! </p>
+                    <button class="cta__button">Book Now</button>
+                </div>
+                <div class="col-8">
+                    <img class="" src="{{url_for('static', filename='images/heroimg.png')}}" alt="">
                 </div>
             </div>
         </div>
-    </header>
 
-    <div class="ui two column grid">
-        <div class="left attached column">
-            <h3>
-                Find, book, and rent a car in easy steps.
-            </h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, praesentium similique eius repellendus, hic, debitis quis libero sint provident minus minima magni dolor quae facilis veritatis nam quasi accusantium? </p>
-            <button class="ui black basic button">Book Now</button>
-        </div>
-        <div class="right attached column">
-            <img class="ui fluid image" src="{{url_for('static', filename='images/heroimg.png')}}" alt="">
-        </div>
-    </div>
-
-    <form action="">
-        <div class="ui grid">
-            <div class="four wide column">
-                <label for="">Location</label>
-                <input type="text">
-            </div>
-            <div class="four wide column">
-                <label for="">Pick-up Date</label>
-                <input type="text" name="" id="">
-            </div>
-            <div class="four wide column">
-                <label for="">Return Date</label>
-                <input type="text">
-            </div>
-            <div class="four wide column">
-                <button type="submit" class="ui black basic button">Book Now</button>
-            </div>
-        </div>
-    </form>
-
-    <section>
-        <div></div>
-        <div></div>
     </section>
 
-    <section>
-        <div>
-            <h2>Most popular car rental deals</h2>
+
+    <section class="booking__process container">
+        <div class="text-center">
+            <h2>How it works</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus iste ad eius eligendi quia modi aspernatur eos esse temporibus? Sunt molestias nihil quod dolores nisi distinctio, praesentium vitae natus quibusdam?</p>
+        </div>
+        <!-- So the trick we can do is make these lines also a column and use
+        transforms to achieve other rotations -->
+        <div class="row">
+            <div class="text-center col">
+                <img src="{{ url_for('static', filename='images/car.png') }}" alt="">
+                <h4>Choose a Car</h4>
+                <p></p>
+            </div>
+
+            <div class="text-center col">
+                <img src="{{ url_for('static', filename='images/date.png') }}" alt="">
+                <h4>Pick a Date</h4>
+                <p></p>
+            </div>
+
+            <div class="text-center col">
+                <img src="{{ url_for('static', filename='images/book.png') }}" alt="">
+                <h4>Book your car</h4>
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rental__deals container-fluid">
+        <div class="container text-center">
+            <h2>Popular rental deals</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tenetur nesciunt fuga corporis, voluptatibus vel deserunt, natus, praesentium voluptas iure ea culpa modi magnam corrupti. Earum doloremque fuga nemo eius.</p>
         </div>
-        <div class="ui four item stackable tabs menu">
-            <div class="active item">
-                <h4>Popular</h4>
-            </div>
-            <div class="item">
-                <h4>Large Car</h4>
-            </div>
-            <div class="item">
-                <h4>Small Car</h4>
-            </div>
-            <div class="item">
-                <h4>Exclusive Car</h4>
+        <div class="mb-3 container">
+            <div class="row">
+                <nav>
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">Popular</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Large Cars</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Small Cars</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link">Exclusive Cars</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
-        <div class="ui grid">
-            <div class="five wide column">
-                <div class="ui card">
-                    <div class="content">
-                    <div class="right floated meta">14h</div>
-                    <p>New Car</p>
+        <div class="cars row">
+            {% for i in range(5) %}
+            <div class="col-3">
+                <div class="card car__listing">
+                    <div class="card-header bg-transparent">Pricing/Rate</div>
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{ url_for('static', filename='images/heroimg.png') }}" alt="">
                     </div>
-                    <div class="image">
-                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
-                    </div>
-                    <div class="content">
-                    <span class="right floated">
-                        <button type="submit" class="ui black basic button">Book Now</button>
-                    </span>
-                    <p>Price</p>
+                    <div class="card-footer bg-transparent text-end">
+                        <button class="cta__button">View</button>
                     </div>
                 </div>
             </div>
-
-            <div class="five wide column">
-                <div class="ui card">
-                    <div class="content">
-                    <div class="right floated meta">14h</div>
-                    <p>New Car</p>
-                    </div>
-                    <div class="image">
-                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
-                    </div>
-                    <div class="content">
-                    <span class="right floated">
-                        <button type="submit" class="ui black basic button">Book Now</button>
-                    </span>
-                    <p>Price</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="five wide column">
-                <div class="ui card">
-                    <div class="content">
-                    <div class="right floated meta">14h</div>
-                    <p>New Car</p>
-                    </div>
-                    <div class="image">
-                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
-                    </div>
-                    <div class="content">
-                    <span class="right floated">
-                        <button type="submit" class="ui black basic button">Book Now</button>
-                    </span>
-                    <p>Price</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="five wide column">
-                <div class="ui card">
-                    <div class="content">
-                    <div class="right floated meta">14h</div>
-                    <p>New Car</p>
-                    </div>
-                    <div class="image">
-                        <img src="{{url_for('static', filename='images/heroimg.png')}}">
-                    </div>
-                    <div class="content">
-                    <span class="right floated">
-                        <button type="submit" class="ui black basic button">Book Now</button>
-                    </span>
-                    <p>Price</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <button type="button">Show more</button>
         </div>
     </section>
     
-    <script src="{{url_for('static', filename='semantic/dist/semantic.min.js')}}"></script>
+    <script src="{{url_for('static', filename='css/bootstrap/bootstrap.js')}}"></script>
 </body>
 </html>
