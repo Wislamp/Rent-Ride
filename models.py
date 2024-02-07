@@ -1,5 +1,3 @@
-from .app_config import db
-
 # Database  models
 class Car(db.Model):
     """
@@ -52,3 +50,7 @@ class Customer(db.Model):
 
     # Relationships
     rentals = db.relationship('Rental', backref='customer', lazy='dynamic')
+
+def db_create(app):
+    with app.app_context():
+        db.create_all()
