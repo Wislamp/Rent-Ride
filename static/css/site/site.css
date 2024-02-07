@@ -6,23 +6,73 @@ so text color must match.
 */
 /* Accent text needs color change */
 
-/* Want to get the layout done, the font etc will follow */
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+#logo {
+    width: 40%;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.logo__accent {
+    color: #3083FF;
+}
+
+.header {
+    max-height: 106px;
+}
+
+.nav-item a {
+    font-size: 1.0966415353rem !important;
+}
+
+section.content__section {
+    padding-top: 6.36rem;
+    padding-bottom: 6.36rem;
+}
 
 section.hero__section{
     margin-bottom: 5rem;
-}
-section.hero__section header{
     background-color: #F3F4FC;
+}
+
+section.hero__section header{
     color: #000000;
     padding: 1rem 1rem;
     border-bottom: 0.05rem solid #B9B9B9;
     justify-content: space-between;
 }
 
-.hero__content.container-fluid {
-    padding: 0;
+.section__header-content {
+    margin-bottom: 3.57625rem;
 }
 
+.section__header {
+    font-size: 2.838125rem;
+    font-weight: 500;
+    margin-bottom: 1.785625rem;
+}
+
+.section__subheader {
+    font-size: 1.01375rem;
+    font-weight: 400;
+}
+
+.hero__content {
+    padding-top: 9rem;
+    min-height: 724px;
+}
+.hero__content h1 {
+    font-size: 3.243125rem;
+    font-weight: 500;
+}
+
+.hero__img {
+    width: 1106px;
+    height: 445px;
+}
 
 .hero__content .row{
     align-items: center;
@@ -38,12 +88,21 @@ section.hero__section header{
     color: #000000;
 }
 
-button.cta__button {
+button.cta__button, .cta__button-primary {
     border: none;
     border-radius: 0.125rem;
     background-color: #ffffff;
     padding: 0.5rem 1.75rem;
     /* we'll fix. Not a biggie - Nav CTA padding */
+}
+
+.cta__button-primary {
+    background-color: #5598FC;
+    color: #ffffff;
+}
+
+.cta__button.b-shadow {
+    margin-top: 4.5rem;
 }
 
 .booking__process {
@@ -52,17 +111,70 @@ button.cta__button {
 
 .rental__deals {
     background-color: #FAFAFA;
-    padding-top: 2rem;
 }
 .car__listing {
     background-color: #D9D9D9;
     border: none;
-}
-
-.car__listing img {
-    padding: 2rem 0;
+    min-width: 309.63px;
+    min-height: 389.19px;
+    border-radius: 1.01375rem;
 }
 
 .car__listing .card-header, .card-footer {
     border: none;
+}
+
+
+img.listed__car {
+    min-width: 228px;
+    max-width: 228px;
+    margin-top: 5.293959375rem;
+    margin-bottom: 5.293959375rem;
+}
+
+.rent__rate {
+    font-size: 0.810625rem;
+}
+
+.contact__us {
+    background-color: #F3F3F3;
+}
+
+.contact__info {
+    background-color: #1E242D;
+}
+
+.contact__info h2 {
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #1E242D;
+    color: #ffffff;
+}
+
+/* UTILITY STYLES */
+.body-p-left {
+    padding-left: 3.64875rem;
+}
+.flex-basis-0 {
+    flex-basis: 0;
+}
+.book_step-h {
+    margin-bottom: 1.41875rem !important;
+    font-weight: 500;
+    font-size: 1.41875rem;
+}
+.small-p {
+    font-weight: 400;
+    font-size: 0.911875rem;
+}
+
+.b-shadow {
+    box-shadow: 0px 3.2432432174682617px 16.216217041015625px 0px #00000040;
+}
+
+.flip__img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
