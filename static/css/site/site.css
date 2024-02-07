@@ -1,16 +1,10 @@
 /* DESKTOP/TABLET COMMONS */
-/* TODO */
-/* 1. Hero section header takes full width */
-/* 2. Hero section has backgroud color with no opacity
-so text color must match.
-*/
-/* Accent text needs color change */
 
 * {
     font-family: 'Poppins', sans-serif;
 }
 
-#logo {
+.logo {
     width: 40%;
     font-size: 2rem;
     font-weight: 700;
@@ -136,6 +130,11 @@ img.listed__car {
     font-size: 0.810625rem;
 }
 
+.choose__us-h-4 {
+    font-size: 1.41875rem;
+    font-weight: 500;
+}
+
 .contact__us {
     background-color: #F3F3F3;
 }
@@ -146,6 +145,7 @@ img.listed__car {
 
 .contact__info h2 {
     color: #ffffff;
+    font-size: 1.25rem;
 }
 
 .footer {
@@ -154,6 +154,10 @@ img.listed__car {
 }
 
 /* UTILITY STYLES */
+.border-r-1 {
+    border-radius: 0.810625rem;
+}
+
 .body-p-left {
     padding-left: 3.64875rem;
 }
