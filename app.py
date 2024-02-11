@@ -78,3 +78,7 @@ with app.app_context():
 @app.route('/')
 def index():
     return render_template('home.html')
+
+@app.route('/cars/1')
+def show_car_details():
+    return render_template('car-details.html')

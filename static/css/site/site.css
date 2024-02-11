@@ -184,3 +184,47 @@ img.listed__car {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
+
+.w__23>* {
+    width: 23% !important;
+}
+
+.w__85 {
+    width: 85% !important;
+}
+
+/* CAR DETAILS PAGE */
+
+section.car_hero_img {
+    background-color: #3563E9;
+    background-image: url('../../images/Rectangle.png');
+    border: none;
+    border-radius: 30px;
+    height: 664px;
+
+}
+
+section.car__photos {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.car__details {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+section.car__suggestions {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.suggested__car {
+    min-height: auto !important;
+    height: auto;
+}
+
+.suggested__car .card-body > img {
+    margin-top: auto;
+    margin-bottom: auto;
+}
