@@ -18,7 +18,8 @@
         <header class="w-100 header">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand logo" href="{{url_for('index')}}"><span class="logo__accent">Rent</span> Ride</a>
+                    <a class="navbar-brand logo" href="{{url_for('index')}}"><span class="logo__accent">Rent</span>
+                        Ride</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -48,9 +49,68 @@
 
     </section>
 
-    <main class="w__85 mx-auto">
-        <section class="car_hero_img p-5 d-flex justify-content-center align-items-center">
+    <main class="w-50 mx-auto mb-5">
+        <section class="">
+            <h1 class="text-center">Thank You</h1>
+            <p>
+                Thank you for your interest in renting a car with Rent Ride Once you have submitted this rental request
+                form,
+                you will receive an email confirmation with further details about your rental
+                reservation. We are excited to assist you in finding the perfect car for your
+                needs and look forward to serving you. Should you have any questions or need
+                assistance, feel free to contact us at info@rentride.com.gh. Safe travels!
+            </p>
         </section>
+
+        <h1 class="text-center">Fill This Form To Reserve A Car</h1>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="firstname" class="form-label">First Name</label>
+                <input name="firstname" type="text" class="form-control" id="firstname" placeholder="John">
+            </div>
+            <div class="col-md-6">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Doe">
+            </div>
+            <div class="col-12">
+                <label for="user-email" class="form-label">Email</label>
+                <input name="email" type="email" class="form-control" id="user-email" placeholder="example@example.com">
+            </div>
+            <div class="col-12">
+                <label for="user-address" class="form-label">Address</label>
+                <input name="address" type="text" class="form-control" id="user-address" placeholder="Residential Address, Street no.">
+            </div>
+            <div class="col-12">
+                <label for="user-contact" class="form-label">Contact</label>
+                <input name="contact" type="text" class="form-control" id="user-contact" placeholder="0205672342">
+            </div>
+            <div class="col-md-6">
+                <label for="city" class="form-label">City</label>
+                <input name="city" type="text" class="form-control" id="city" placeholder="Accra">
+            </div>
+            <div class="col-md-6">
+                <label for="region" class="form-label">Region</label>
+                <select name="region" id="region" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="duration" class="form-label">Rental Duration</label>
+                <select name="duration" id="duration" class="form-select">
+                    <option selected>1 day</option>
+                    {% for i in range(2, 31) %}
+                    <option>{{ i }} days</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-12">
+                <em>*Visit our garage if you want to rent a car for more than 30 days.</em>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </main>
 
     <footer class="container-fluid footer p-5">
@@ -64,9 +124,12 @@
             <nav class="flex-grow-1 footer__content">
                 <ul class="nav">
                     <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="{{url_for('index')}}#how-it-works" class="nav-link">How It Works</a></li>
-                    <li class="nav-item"><a href="{{url_for('index')}}#rental-deals" class="nav-link">Rental Deals</a></li>
-                    <li class="nav-item"><a href="{{url_for('index')}}#why-choose-us" class="nav-link">Why Choose Us</a></li>
+                    <li class="nav-item"><a href="{{url_for('index')}}#how-it-works" class="nav-link">How It Works</a>
+                    </li>
+                    <li class="nav-item"><a href="{{url_for('index')}}#rental-deals" class="nav-link">Rental Deals</a>
+                    </li>
+                    <li class="nav-item"><a href="{{url_for('index')}}#why-choose-us" class="nav-link">Why Choose Us</a>
+                    </li>
                 </ul>
             </nav>
         </div>
