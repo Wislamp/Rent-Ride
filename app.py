@@ -82,3 +82,7 @@ def index():
 @app.route('/cars/1')
 def show_car_details():
     return render_template('car-details.html')
+
+@app.route('/rent-form')
+def rent_form():
+    return render_template('rent-form.html')
