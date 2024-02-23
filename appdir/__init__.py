@@ -21,7 +21,7 @@ def create_app(test_config=None):
     try:
         os.makedirs(app.instance_path)
     except OSError:
-        print('An error occured creating instance dir..')
+        print('instance dir exists or an error occured while creating it..')
 
 
     """
