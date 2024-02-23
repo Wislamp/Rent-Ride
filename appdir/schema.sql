@@ -38,5 +38,5 @@ CREATE TABLE customers (
 
 CREATE TABLE regions (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  region TEXT NOT NULL,
+  region TEXT NOT NULL
 );
