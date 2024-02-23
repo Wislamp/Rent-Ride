@@ -7,10 +7,6 @@ __pycache__/
 Pipfile
 Pipfile.lock
 
-# Temporary Bootstrap stuff
-static/css/bootstrap/css/*.map
-static/css/bootstrap/js/*.map
-
 # Node modules / packages
 node_modules
 
