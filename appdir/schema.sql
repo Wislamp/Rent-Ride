@@ -9,7 +9,7 @@ CREATE TABLE cars (
   model TEXT NOT NULL,
   model_year INTEGER NOT NULL,
   color TEXT NOT NULL,
-  rate FLOAT NOT NULL,
+  rate INTEGER NOT NULL,
   rent_status TEXT NOT NULL,
   category TEXT NOT NULL
 );

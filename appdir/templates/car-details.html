@@ -56,12 +56,11 @@
             </div> -->
             <div id="carouselExampleRide" class="carousel slide flex-fill" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                    {% for image in images %}
                     <div class="carousel-item active">
-                        <img src="{{url_for('static', filename='images/silve-camry.png')}}" class="d-block w-75 mx-auto flip__img" alt="...">
+                        <img src="{{url_for('static', filename='images/cars/')}}{{image}}" class="d-block w-75 mx-auto flip__img" alt="...">
                     </div>
-                    <div class="carousel-item">
-                        <img src="{{url_for('static', filename='images/heroimg.png')}}" class="d-block w-75 mx-auto flip__img" alt="...">
-                    </div>
+                    {% endfor %}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -77,23 +76,23 @@
             <div class="w-50 row row-cols-4 w__23 gap-2 ">
                 {% for i in range(4) %}
                 <div class="d-flex align-items-center col border border-4 rounded">
-                    <img class="d-block w-100 card-img-top flip__img" src="{{url_for('static', filename='images/int')}}{{i}}.png" alt="">
+                    <img class="d-block w-100 card-img-top flip__img" src="{{url_for('static', filename='images/cars/')}}{{images[0]}}" alt="">
                 </div>
                 {% endfor %}
             </div>
         </section>
         <section>
-            <h1 class="fs-1 fw-bold">Toyota Camry</h1>
+            <h1 class="fs-1 fw-bold">{{car['model']}}</h1>
             <p class="w-75">The 2020 Toyota Camry is a reliable sedan renowned for its comfort, fuel efficiency, and spacious interior. Equipped with advanced safety features and modern technology, it's ideal for both city driving and long-distance trips.</p>
             <div class="row row-cols-2 car__details">
-                <div class="col"><strong>Model</strong>: Toyota Camry</div>
-                <div class="col"><strong>Color</strong>: Silver</div>
-                <div class="col"><strong>Year</strong>: 2020</div>
-                <div class="col"><strong>Category</strong>: Exclusive</div>
+                <div class="col"><strong>Model</strong>: {{car['model']}}</div>
+                <div class="col"><strong>Color</strong>: {{car['color']}}</div>
+                <div class="col"><strong>Year</strong>: {{car['model_year']}}</div>
+                <div class="col"><strong>Category</strong>: {{car['category']}}</div>
             </div>
             <div class="row row-cols-2">
-                <p class="col fs-4 fw-bold">$80.00/hr</p>
-                <a class="col" href=""><button class="cta__button-primary" type="button">Rent Now</button></a>
+                <p class="col fs-4 fw-bold">${{car['rate']}}/hr</p>
+                <a class="col" href="reservation/{{car['id']}}"><button class="cta__button-primary" type="button">Rent Now</button></a>
             </div>
         </section>
 
