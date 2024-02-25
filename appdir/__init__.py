@@ -32,14 +32,25 @@ def create_app(test_config=None):
     """
     @app.route('/')
     def index():
-        return render_template('home.html')
+        query = 'SELECT * from cars WHERE category=?'
+        cursor = db.get_db().execute(query, ['Popular'])
+        cars = cursor.fetchall()
+        if cars is None:
+            cars = 'No available cars'
+        else:
+            cars = list(cars)
+        return render_template('home.html', available_cars = cars)
 
-    @app.route('/cars/1')
-    def show_car_details():
-        return render_template('car-details.html')
+    @app.route('/cars/<car_id>')
+    def show_car_details(car_id):
+        query = 'SELECT * from cars WHERE id=?'
+        cursor = db.get_db().execute(query, [car_id])
+        car = cursor.fetchone()
+        images = car['images'].split(',')
+        return render_template('car-details.html', car = car, images = images)
 
-    @app.route('/rent-form')
-    def rent_form():
-        return render_template('rent-form.html') 
+    @app.route('/cars/reservation/<car_id>')
+    def reservation_form(car_id):
+        return render_template('reservation-form.html')
 
     return app
