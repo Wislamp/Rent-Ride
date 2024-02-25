@@ -23,6 +23,9 @@ def create_app(test_config=None):
     except OSError:
         print('instance dir exists or an error occured while creating it..')
 
+    from . import db
+    db.init_app(app)
+
 
     """
     ---ROUTES---
@@ -37,10 +40,6 @@ def create_app(test_config=None):
 
     @app.route('/rent-form')
     def rent_form():
-        return render_template('rent-form.html')
-
-
-    from . import db
-    db.init_app(app)
+        return render_template('rent-form.html') 
 
     return app
