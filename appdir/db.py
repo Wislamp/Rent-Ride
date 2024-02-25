@@ -21,9 +21,11 @@ def close_db(e=None):
 def init_db():
     db = get_db()
 
+    print('Initializing database...')
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
     
+    print('Seeding database...')
     with current_app.open_resource('seeder.sql') as f:
         db.executescript(f.read().decode('utf8'))
 
@@ -35,4 +37,6 @@ def init_db_command():
 
 def init_app(app):
     app.teardown_appcontext(close_db)
-    app.cli.add_command(init_db_command)
+    # app.cli.add_command(init_db_command)
+    with app.app_context():
+        init_db()
