@@ -17,4 +17,10 @@ The primary goals of Rent-Ride are:
   - **Design File:** [Figma](https://www.figma.com/file/r3fbNCOXOvlW3IQtpbs1an/Untitled?type=design&node-id=0%3A1&mode=design&t=z4ACbX64HNduEUtD-1)
  
  ## App Structure
- -
+ 
+
+
+
+
+ ## Link To Run Codes
+ - flask --app appdir run --debug
