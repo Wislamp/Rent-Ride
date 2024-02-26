@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 def create_app(test_config=None):
@@ -23,8 +23,7 @@ def create_app(test_config=None):
     except OSError:
         print('instance dir exists or an error occured while creating it..')
 
-    from . import db
-    db.init_app(app)
+
 
 
     """
@@ -51,6 +50,44 @@ def create_app(test_config=None):
 
     @app.route('/cars/reservation/<car_id>')
     def reservation_form(car_id):
-        return render_template('reservation-form.html')
+        query = 'SELECT * from regions'
+        cursor = db.get_db().execute(query, [])
+        regions = cursor.fetchall()
+        regions = list(regions)
+
+        return render_template('reservation-form.html', regions=regions, car = car_id)
+
+
+    @app.post('/reservations/submit/<car_id>')
+    def submit_reservation(car_id):
+        first_name = request.form['firstname']
+        last_name = request.form['lastname']
+        email = request.form['email']
+        phone = request.form['contact']
+        residence_address = request.form['address']
+        city = request.form['city']
+        region = request.form['region']
+        duration = request.form['duration']
+
+        # Insert into rentals table
+        query = 'INSERT INTO rentals (car_id, duration) VALUES (?,?)'
+        cursor = db.get_db().cursor()
+        cursor.execute(query, [car_id, duration])
+        db.get_db().commit()
+        rental_id = cursor.lastrowid
+
+        # Get region id
+        query = 'SELECT id from regions WHERE region=?'
+        cursor = db.get_db().execute(query, [region])
+        result = list(cursor.fetchone())
+        region_id = result[0]
+
+        # Insert into customers table
+        query = 'INSERT INTO customers (first_name, last_name, email, phone, residence_address, city, region_id, rental_id) VALUES (?,?,?,?,?,?,?,?)'
+        db.get_db().execute(query, [first_name, last_name, email, phone, residence_address, city, region_id, rental_id])
+        db.get_db().commit()
+
+    from . import db
+    db.init_app(app)
 
     return app

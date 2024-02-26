@@ -17,10 +17,8 @@ CREATE TABLE cars (
 CREATE TABLE rentals (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   car_id INTEGER NOT NULL,
-  customer_id INTEGER NOT NULL,
   duration INTEGER NOT NULL,
-  FOREIGN KEY (car_id) REFERENCES cars (id),
-  FOREIGN KEY (customer_id) REFERENCES customers (id)
+  FOREIGN KEY (car_id) REFERENCES cars (id)
 );
 
 CREATE TABLE customers (
