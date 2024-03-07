@@ -107,7 +107,7 @@ button.cta__button, .cta__button-primary {
     background-color: #FAFAFA;
 }
 .car__listing {
-    background-color: #D9D9D9;
+    background-color: #FFFFFF;
     border: none;
     min-width: 309.63px;
     min-height: 389.19px;
@@ -196,8 +196,6 @@ img.listed__car {
 /* CAR DETAILS PAGE */
 
 section.car_hero_img {
-    background-color: #3563E9;
-    background-image: url('../../images/Rectangle.png');
     border: none;
     border-radius: 30px;
     height: 664px;
