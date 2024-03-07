@@ -1,10 +1,13 @@
 import os
 from flask import Flask, render_template, request, redirect
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
+    mail = Mail()
     app.config.from_mapping(
         SECRET_KEY='rent-ride',
         DATABASE=os.path.join(app.instance_path, 'rentride.sqlite'),
@@ -23,7 +26,18 @@ def create_app(test_config=None):
     except OSError:
         print('instance dir exists or an error occured while creating it..')
 
-
+    def send_mail(customer_email, car_id):
+        subject = 'Reservation Confirmation'
+        email_txt = f'You reserved car with ID: {car_id}'
+        sender = 'info@alansatech.com'
+        recipients = [customer_email]
+        message = Mail(subject = subject, from_email = sender, to_emails = recipients, html_content = email_txt)
+        try:
+            sg = SendGridAPIClient('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')
+            response = sg.send(message)
+            print(response.status_code)
+        except Exception as e:
+            print(e.message)
 
 
     """
@@ -99,11 +113,12 @@ def create_app(test_config=None):
             db.get_db().commit()
         
         # phase 1 : redirect user to the home page TODO 2
+        send_mail(email,car_id)
         return redirect('/')
         # phase 2 : create reservation-confirmation.html and direct the user there , passing the rental id.
         #           this rental id will be used in that page to retrive and display reservation info
         #           in parallel, send an email to the user
-        return 
+
     ## TODO 3 : create reservations.html page in which we can list all reservations
     ## TODO 4 : create add-cars.html page 
     ## TODO 5 fix validation in reservation and adding cars
