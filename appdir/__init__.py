@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 
 def create_app(test_config=None):
@@ -68,31 +68,38 @@ def create_app(test_config=None):
         city = request.form['city']
         region = request.form['region']
         duration = request.form['duration']
-        
+
         # TODO 1:
         # first make sure the customer id is there! (email)
         # if the custmer is there, get his id and insert it with rental info below
         # if not, create a customer and get their id 
+        query = 'SELECT id from customers WHERE email=?'
+        cursor = db.get_db().execute(query, [email])
+        customer_id = cursor.fetchone()
+        if customer_id is not None:
+            # Insert into rentals table
+            query = 'INSERT INTO rentals (car_id, customer_id, duration) VALUES (?,?,?)'
+            cursor = db.get_db().cursor()
+            cursor.execute(query, [car_id, customer_id[0], duration])
+            db.get_db().commit()
+        
+        else:
+            query = 'SELECT id from regions WHERE region=?'
+            cursor = db.get_db().execute(query, [region])
+            region_id = cursor.fetchone()[0]
 
-        # Insert into rentals table
-        query = 'INSERT INTO rentals (car_id, duration) VALUES (?,?)' #customer id
-        cursor = db.get_db().cursor()
-        cursor.execute(query, [car_id, duration])
-        db.get_db().commit()
-        rental_id = cursor.lastrowid #remove
-      
-        # Get region id == move it up to the custeomr section b4 the rental insertion
-        query = 'SELECT id from regions WHERE region=?'
-        cursor = db.get_db().execute(query, [region])
-        result = list(cursor.fetchone())
-        region_id = result[0]
+            query = 'INSERT INTO customers (first_name, last_name, email, phone, residence_address, city, region_id) VALUES (?,?,?,?,?,?,?)'
+            cursor = db.get_db().execute(query, [first_name, last_name, email, phone, residence_address, city, region_id])
+            customer_id = cursor.lastrowid
+            db.get_db().commit()
 
-        # Insert into customers table 33 move up
-        query = 'INSERT INTO customers (first_name, last_name, email, phone, residence_address, city, region_id, rental_id) VALUES (?,?,?,?,?,?,?,?)'
-        db.get_db().execute(query, [first_name, last_name, email, phone, residence_address, city, region_id, rental_id])
-        db.get_db().commit()
+            query = 'INSERT INTO rentals (car_id, customer_id, duration) VALUES (?,?,?)'
+            cursor = db.get_db().cursor()
+            cursor.execute(query, [car_id, customer_id, duration])
+            db.get_db().commit()
         
         # phase 1 : redirect user to the home page TODO 2
+        return redirect('/')
         # phase 2 : create reservation-confirmation.html and direct the user there , passing the rental id.
         #           this rental id will be used in that page to retrive and display reservation info
         #           in parallel, send an email to the user
