@@ -68,25 +68,40 @@ def create_app(test_config=None):
         city = request.form['city']
         region = request.form['region']
         duration = request.form['duration']
+        
+        # TODO 1:
+        # first make sure the customer id is there! (email)
+        # if the custmer is there, get his id and insert it with rental info below
+        # if not, create a customer and get their id 
 
         # Insert into rentals table
-        query = 'INSERT INTO rentals (car_id, duration) VALUES (?,?)'
+        query = 'INSERT INTO rentals (car_id, duration) VALUES (?,?)' #customer id
         cursor = db.get_db().cursor()
         cursor.execute(query, [car_id, duration])
         db.get_db().commit()
-        rental_id = cursor.lastrowid
-
-        # Get region id
+        rental_id = cursor.lastrowid #remove
+      
+        # Get region id == move it up to the custeomr section b4 the rental insertion
         query = 'SELECT id from regions WHERE region=?'
         cursor = db.get_db().execute(query, [region])
         result = list(cursor.fetchone())
         region_id = result[0]
 
-        # Insert into customers table
+        # Insert into customers table 33 move up
         query = 'INSERT INTO customers (first_name, last_name, email, phone, residence_address, city, region_id, rental_id) VALUES (?,?,?,?,?,?,?,?)'
         db.get_db().execute(query, [first_name, last_name, email, phone, residence_address, city, region_id, rental_id])
         db.get_db().commit()
-
+        
+        # phase 1 : redirect user to the home page TODO 2
+        # phase 2 : create reservation-confirmation.html and direct the user there , passing the rental id.
+        #           this rental id will be used in that page to retrive and display reservation info
+        #           in parallel, send an email to the user
+        return 
+    ## TODO 3 : create reservations.html page in which we can list all reservations
+    ## TODO 4 : create add-cars.html page 
+    ## TODO 5 fix validation in reservation and adding cars
+    ## TODO 6: add reservation-sattus in the rentals table and add cancel-reservation feature
+    
     from . import db
     db.init_app(app)
 

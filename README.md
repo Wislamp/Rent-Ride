@@ -16,8 +16,25 @@ The primary goals of Rent-Ride are:
   ### Planning Documents
   - **Design File:** [Figma](https://www.figma.com/file/r3fbNCOXOvlW3IQtpbs1an/Untitled?type=design&node-id=0%3A1&mode=design&t=z4ACbX64HNduEUtD-1)
  
+
  ## App Structure
+
+ ### Hero Page
+  * Hero image, a concise info of the site and a call to action "Book Now".
  
+
+ ### How It Works
+
+ ### Popular Rental Deals
+
+ ### Why Choose Us
+
+ ### Brands 
+
+ ### Contact 
+
+ ### Footer
+
 
 
 
