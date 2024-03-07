@@ -33,7 +33,7 @@ def create_app(test_config=None):
         recipients = [customer_email]
         message = Mail(subject = subject, from_email = sender, to_emails = recipients, html_content = email_txt)
         try:
-            sg = SendGridAPIClient('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')
+            sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
             response = sg.send(message)
             print(response.status_code)
         except Exception as e:
