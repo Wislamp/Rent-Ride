@@ -12,3 +12,6 @@ INSERT INTO cars (images, model, model_year, color, rate, rent_status, category)
 INSERT INTO cars (images, model, model_year, color, rate, rent_status, category) VALUES('blue-bmw-exclusive.jpg', 'BMW', 2020, 'Blue', 50, 'Available', 'Popular');
 INSERT INTO cars (images, model, model_year, color, rate, rent_status, category) VALUES('red-nissan.jpg', 'Nissan', 2020, 'Red', 50, 'Available', 'Popular');
 INSERT INTO cars (images, model, model_year, color, rate, rent_status, category) VALUES('red-volvo.jpg', 'Volvo', 2020, 'Red', 70, 'Available', 'Popular');
+INSERT INTO cars (images, model, model_year, color, rate, rent_status, category) VALUES('red-bmw.jpg', 'BMW', 2020, 'Red', 57, 'Available', 'Popular');
+INSERT INTO cars (images, model, model_year, color, rate, rent_status, category) VALUES('silver-bmw.jpg', 'BMW', 2020, 'Silver', 65, 'Available', 'Popular');
+INSERT INTO cars (images, model, model_year, color, rate, rent_status, category) VALUES('silver-audi.png', 'Audi', 2020, 'Silver', 60, 'Available', 'Popular');
